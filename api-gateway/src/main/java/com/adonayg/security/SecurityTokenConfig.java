@@ -28,7 +28,7 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
                 .addFilterAfter(new JwtTokenAuthFilter(jwtConfig), UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, jwtConfig.getUri()).permitAll()
-                .antMatchers("/" + "/admin/**").hasRole("ADMIN")
+                .antMatchers("/" + "admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated();
     }
 
